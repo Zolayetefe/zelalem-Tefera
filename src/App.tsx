@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     // Update page title
-    document.title = 'John Doe | Software Developer';
+    document.title = 'Zelalem Tefera | Software Developer';
   }, []);
 
   return (
