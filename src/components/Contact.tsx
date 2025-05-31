@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+const accessKey = import.meta.env.VITE_WEB3FORM_ACCESS_KEY;
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ const Contact: React.FC = () => {
     setSubmitError(false);
 
     const data = {
-      access_key: '74e379d2-47f0-43e5-89fd-aabf19aee5e7', // Replace with your Web3Forms key
+      access_key: accessKey, // Replace with your Web3Forms key
       ...formData,
     };
 

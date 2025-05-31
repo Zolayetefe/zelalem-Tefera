@@ -1,6 +1,8 @@
 import React from 'react';
 import profile from "../images/profile.jpg";
 
+
+
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
