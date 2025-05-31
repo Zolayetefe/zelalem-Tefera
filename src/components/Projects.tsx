@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import smartClinic from '../images/smart-clinic.png';
+import pregnancyApp from '../images/pregnancy.png';
+import Calculator from '../images/calculator.png';
+import tictactoc from '../images/tic-tac-toc.png';
+import jokeGenerator from '../images/joke-generator.png';
+import secureNote from '../images/secureNoteApp.png'
 
 interface Project {
   id: number;
@@ -9,58 +15,115 @@ interface Project {
   tags: string[];
   githubUrl: string;
   liveUrl: string;
-  category: 'react' | 'flutter' | 'all';
+  category: 'flutter' | 'react' | 'frontend' | 'backend' | 'all';
 }
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'react' | 'flutter'>('all');
+  const [activeFilter, setActiveFilter] = useState<Project['category']>('all');
+
+  const filterLabels: Record<Project['category'], string> = {
+    all: 'All Projects',
+    react: 'React Projects',
+    flutter: 'Flutter Projects',
+    frontend: 'Frontend Projects',
+    backend: 'Backend Projects',
+  };
+
+  const filterKeys: Project['category'][] = ['all', 'flutter', 'react', 'frontend', 'backend'];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Dashboard',
-      description: 'A comprehensive admin dashboard for e-commerce businesses with analytics, order management, and inventory tracking.',
-      image: 'https://images.pexels.com/photos/8297452/pexels-photo-8297452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      tags: ['React', 'Redux', 'Tailwind CSS', 'Chart.js'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      title: 'Web based Smart Clinic',
+      description: 'A fully functional role based hospital management system for appointments and medical records.',
+      image: smartClinic,
+      tags: ['React', 'Express.js', 'Tailwind CSS', 'Prisma ORM', 'Postgresql'],
+      githubUrl: 'https://github.com/Zolayetefe/smart-clinic-frontend-',
+      liveUrl: '',
       category: 'react',
     },
     {
       id: 2,
-      title: 'Fitness Tracking App',
-      description: 'A mobile application for tracking workouts, nutrition, and personal fitness goals with social features.',
-      image: 'https://images.pexels.com/photos/4098360/pexels-photo-4098360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      tags: ['Flutter', 'Dart', 'Firebase', 'Provider'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      title: 'Pregnancy And Childcare App',
+      description: 'A comprehensive mobile application for tracking mothers healthy, provide health tips and community future with other utilities features.',
+      image: pregnancyApp,
+      tags: ['Flutter', 'Dart', 'Supabase', 'Provider'],
+      githubUrl: 'https://github.com/ZeWuJb/ADDE-mother',
+      liveUrl: '',
       category: 'flutter',
-    },
-    {
-      id: 3,
-      title: 'Real Estate Platform',
-      description: 'A web platform for property listings with advanced search, filtering, and user authentication.',
-      image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      tags: ['React', 'Node.js', 'MongoDB', 'Mapbox'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'react',
     },
     {
       id: 4,
-      title: 'Food Delivery App',
-      description: 'A cross-platform mobile app for food ordering with real-time tracking and payment integration.',
-      image: 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      tags: ['Flutter', 'Dart', 'RESTful API', 'Bloc'],
+      title: 'Joke Generator App',
+      description: 'A funny mobile app that generates jokes when a smile is detected, or motivation otherwise.',
+      image: jokeGenerator,
+      tags: ['Flutter', 'Dart', 'google_mlkit_face_detection'],
       githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      liveUrl: '',
       category: 'flutter',
     },
+    {
+      id: 5,
+      title: 'Interactive Calculator',
+      description: 'Web-based calculator with basic functionality.',
+      image: Calculator,
+      tags: ['Javascript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/Zolayetefe/calculator',
+      liveUrl: 'https://zolayetefe.github.io/calculator/',
+      category: 'frontend',
+    },
+    {
+      id: 6,
+      title: 'Tic-Tac-Toe',
+      description: 'A simple web-based Tic-Tac-Toe game built using HTML, CSS, and JavaScript.',
+      image: tictactoc,
+      tags: ['Javascript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/Zolayetefe/tic_tac_toc',
+      liveUrl: 'https://zolayetefe.github.io/tic_tac_toc/',
+      category: 'frontend',
+    },
+    {
+      id: 7,
+      title: 'A Secure Note App Backend',
+      description: 'A RESTful Note application backend built with Express.js, featuring JWT auth and CRUD endpoints.',
+      image: secureNote,
+      tags: ['Express.js', 'Node.js', 'JWT','Blowfish Algorithm', 'MongoDB'],
+      githubUrl: 'https://github.com/Zolayetefe/secure-note-backend',
+      liveUrl: '',
+      category: 'backend',
+    },
+     {
+    id: 8,
+    title: 'Smart Clinic Backend',
+    description: 'Backend for Smart Clinic built using Express.js, cookie based  authentication, Prisma ORM, and PostgreSQL.',
+    image: 'https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    tags: ['Express.js', 'node.js', 'Prisma', 'PostgreSQL'],
+    githubUrl: 'https://github.com/Zolayetefe/smart-clinic-back',
+    liveUrl: '',
+    category: 'backend',
+  },
+  {
+    id: 9,
+    title: 'Victory Contest Backend',
+    description: 'Backend for a student contest platform built with FastAPI and Firebase.',
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    tags: ['FastAPI', 'Firebase', 'Python'],
+    githubUrl: 'https://github.com/Yosef64/victory-contest-backend',
+    liveUrl: '',
+    category: 'backend',
+  },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects =
+    activeFilter === 'all' ? projects : projects.filter((project) => project.category === activeFilter);
+
+  const getTagClasses = (tag: string) => {
+    const lower = tag.toLowerCase();
+    if (lower.includes('react')) return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+    if (lower.includes('flutter')) return 'bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200';
+    if (lower.includes('express') || lower.includes('node')) return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+    return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+  };
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -74,7 +137,7 @@ const Projects: React.FC = () => {
 
         <div className="flex justify-center mb-12">
           <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-full">
-            {(['all', 'react', 'flutter'] as const).map((filter) => (
+            {filterKeys.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
@@ -84,7 +147,7 @@ const Projects: React.FC = () => {
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
-                {filter === 'all' ? 'All Projects' : filter === 'react' ? 'React Projects' : 'Flutter Projects'}
+                {filterLabels[filter]}
               </button>
             ))}
           </div>
@@ -103,25 +166,23 @@ const Projects: React.FC = () => {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 w-full">
-                    <div className="flex justify-end space-x-3">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                      >
-                        <Github size={20} />
-                      </a>
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    </div>
+                  <div className="p-6 w-full flex justify-end gap-3">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                    >
+                      <Github size={20} />
+                    </a>
+                   { project.liveUrl && <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                    >
+                      <ExternalLink size={20} />
+                    </a>}
                   </div>
                 </div>
               </div>
@@ -129,19 +190,9 @@ const Projects: React.FC = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-                
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className={`px-3 py-1 text-xs font-medium rounded-full ${
-                        tag.toLowerCase().includes('react')
-                          ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                          : tag.toLowerCase().includes('flutter')
-                          ? 'bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200'
-                          : 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
-                      }`}
-                    >
+                    <span key={index} className={`px-3 py-1 text-xs font-medium rounded-full ${getTagClasses(tag)}`}>
                       {tag}
                     </span>
                   ))}
