@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
       title: 'Web based Smart Clinic',
       description: 'A fully functional role based hospital management system for appointments and medical records.',
       image: smartClinic,
-      tags: ['React', 'Express.js', 'Tailwind CSS', 'Prisma ORM', 'Postgresql'],
+      tags: ['React', 'Tailwind CSS'],
       githubUrl: 'https://github.com/Zolayetefe/smart-clinic-frontend-',
       liveUrl: '',
       category: 'react',
