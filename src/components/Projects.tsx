@@ -6,6 +6,7 @@ import Calculator from '../images/calculator.png';
 import tictactoc from '../images/tic-tac-toc.png';
 import jokeGenerator from '../images/joke-generator.png';
 import secureNote from '../images/secureNoteApp.png'
+import talenthub from '../images/talenthub.png'
 
 interface Project {
   id: number;
@@ -15,7 +16,7 @@ interface Project {
   tags: string[];
   githubUrl: string;
   liveUrl: string;
-  category: 'flutter' | 'react' | 'frontend' | 'backend' | 'all';
+  category: 'backend' |'flutter' | 'react' | 'frontend' | 'all';
 }
 
 const Projects: React.FC = () => {
@@ -23,13 +24,13 @@ const Projects: React.FC = () => {
 
   const filterLabels: Record<Project['category'], string> = {
     all: 'All Projects',
+    backend: 'Backend Projects',
     react: 'React Projects',
     flutter: 'Flutter Projects',
     frontend: 'Frontend Projects',
-    backend: 'Backend Projects',
   };
 
-  const filterKeys: Project['category'][] = ['all', 'flutter', 'react', 'frontend', 'backend'];
+  const filterKeys: Project['category'][] = ['all', 'backend','flutter', 'react', 'frontend'];
 
   const projects: Project[] = [
     {
@@ -112,6 +113,26 @@ const Projects: React.FC = () => {
     liveUrl: '',
     category: 'backend',
   },
+  {
+    "id": 10,
+    "title": "TalentHub Frontend",
+    "description": "A user-friendly interface for the TalentHub Job Portal that allows applicants to browse job listings, apply for jobs, and manage their profiles, while employers can post jobs and track applications.",
+    "image": "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "tags": ["React", "Vite", "Tailwind CSS", "Vercel"],
+    "githubUrl": "https://github.com/Zolayetefe/talenthub",
+    "liveUrl": "https://talent-hub-weld.vercel.app/",
+    "category": "react"
+  },
+  {
+    "id": 11,
+    "title": "TalentHub Backend",
+    "description": "A robust backend service for the TalentHub Job Portal that manages authentication, job postings, applications, and user roles, ensuring secure and efficient interaction between employers and applicants.",
+    "image": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "tags": ["Node.js", "Express", "MongoDB Atlas", "Render"],
+    "githubUrl": "https://github.com/Zolayetefe/talenthub",
+    "liveUrl": "https://talenthub-backend.onrender.com",
+    "category": "backend"
+  }
   ];
 
   const filteredProjects =

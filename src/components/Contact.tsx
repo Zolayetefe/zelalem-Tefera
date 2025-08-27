@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
             <div className="space-y-6">
               <ContactInfo icon={<Mail size={20} />} title="Email" value="zedoyetefe@gmail.com" link="mailto:zedoyetefe@gmail.com" />
               <ContactInfo icon={<Phone size={20} />} title="Phone" value="+251986377366" link="tel:+251986377366" />
-              <ContactInfo icon={<MapPin size={20} />} title="Location" value="Bahir Dar, Ethiopia" />
+              <ContactInfo icon={<MapPin size={20} />} title="Location" value="Addis Ababa, Ethiopia" />
             </div>
             <div className="mt-10">
               <h4 className="font-bold text-gray-900 dark:text-white mb-4">Connect With Me</h4>
